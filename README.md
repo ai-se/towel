@@ -7,7 +7,7 @@ Setting up Towel
 
 
 1. Installing Elasticsearch:
-  + Download and extract Elasticsearch 2.3.4 from [here](https://www.elastic.co/downloads/elasticsearch).
+  + Download and extract Elasticsearch 2.3.4 (or newer) from [here](https://www.elastic.co/downloads/elasticsearch).
   + You'll also need to install [JAVA](http://java.com/en/download/manual.jsp)
     - If you haven't already, configure JAVA_HOME. (see [instructions](https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html))
   + To run ES, we run `elasticsearch.bat` located in the bin folder (in elasticsearch the directory) from a command window. This will start ElasticSearch running in the foreground in the console, meaning we'll see errors in the console and can shut it down using `CTRL+C`. *Note: We don't have to start this manually. Our code will automatically spawn an ES process if its not running already.*
