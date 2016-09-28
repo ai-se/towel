@@ -1,0 +1,34 @@
+body { font: 12px Arial;}
+
+path { 
+    stroke: #EA4A00;
+    stroke-width: 2;
+    fill: none;
+}
+xlabel {
+    color: #285e8e;
+    font: 12px Arial;
+}
+.axis path,
+.axis xlabel,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: smoothEdges;
+}
+
+td, th {
+    text-align: center;
+    padding: 6px 6px;
+    border: 0.5px #DFDFDF solid;
+}
+
+#d3-metric-control {
+    color: #285e8e;
+    font: 14px Arial;
+}
+#d3-metric-train {
+    color: #285e8e;
+    font: 14px Arial;
+}

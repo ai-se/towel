@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard</title>
+    {#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',
+    filename="lib/css/bootstrap.min.css") }}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',
+    filename="lib/css/keen-dashboards.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',
+    filename="lib/css/dc.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',
+    filename="css/chart.css") }}">
+    <script type="text/javascript"
+            src={{ url_for('static', filename='./lib/js/jquery.js') }}></script>
+    <script type="text/javascript"
+            src={{ url_for('static', filename='./lib/js/bootstrap.min.js') }}></script>
+    <script type="text/javascript"
+            src={{ url_for('static', filename='./lib/js/d3.js') }}></script>
+    <script type="text/javascript"
+            src={{ url_for('static', filename='./lib/js/d3-jetpack.js') }}></script>
+    <script type="text/javascript"
+            src={{ url_for('static', filename='./lib/js/queue.js') }}></script>
+    <script type="text/javascript"
+            src={{ url_for('static', filename='./lib/js/crossfilter.js') }}></script>
+    <script type="text/javascript"
+            src={{ url_for('static', filename='./lib/js/keen.min.js') }}></script>
+
+</head>
+
+<body class="application">
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="./">E-Discovery Sandbox</a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="row">
+
+                <!-- F1 Scores -->
+                <div class="col-md-6">
+                    <div class="chart-wrapper">
+                        <div class="chart-title">F Scores</div>
+                        <div class="chart-stage" id="d3-fscores"></div>
+                    </div>
+                </div>
+
+                <!-- Turnovers -->
+                <div class="col-md-6">
+                    <div class="chart-wrapper">
+                        <div class="chart-title">Turnovers</div>
+                        <div class="chart-stage" id="d3-turnovers"></div>
+                    </div>
+                </div>
+
+                <!-- data table -->
+                <div class="col-md-6">
+                    <div class="chart-wrapper">
+                        <div class="chart-title">Data Table</div>
+                        <div class="chart-stage" id="d3-data-table"></div>
+                    </div>
+                </div>
+
+
+                <!-- Metric 1 -->
+                <div class="col-sm-3">
+                    <div class="chart-wrapper">
+                        <div class="chart-title">
+                            Training Set
+                        </div>
+                        <div class="chart-stage">
+                            <div id="d3-metric-train"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Metric 1 -->
+
+                <!-- Metric 2 -->
+                <div class="col-sm-3">
+                    <div class="chart-wrapper">
+                        <div class="chart-title">
+                            Control Set
+                        </div>
+                        <div class="chart-stage">
+                            <div id="d3-metric-control"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Metric 2 -->
+
+                <!-- Metric 2 -->
+                <div class="col-sm-6">
+                    <div class="chart-wrapper">
+                        <div class="chart-title">
+                            Key Terms
+                        </div>
+                        <div class="chart-stage">
+                            <div id="d3-key-terms"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Metric 2 -->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript"
+        src={{ url_for('static', filename='./js/charts.js') }}></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',
+    filename="css/chart.css") }}">
+</body>
+
+</html>

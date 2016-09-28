@@ -1,0 +1,103 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <title>Hello from Flask</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',
+    filename="lib/css/keen-dashboards.css") }}">
+    <script type=text/javascript src="{{url_for('static', filename='lib/js/PorterStemmer.js') }}"></script>
+    <script type=text/javascript src="{{url_for('static', filename='lib/js/jquery-3.0.0.min.js') }}"></script>
+    <script type="text/javascript"
+            src={{ url_for('static', filename='./lib/js/keen.min.js') }}></script>
+    <script type=text/javascript src="{{url_for('static', filename='js/myScript.js') }}"></script>
+</head>
+
+<body>
+
+    <div class="search">
+        <h3> Search takes place here. </h3>
+        <form action="javascript:" onsubmit="search_send(this)">
+            <input type="text" name="elastic" id="elasticinput">
+            </input>
+            <select id="review_options" name="view" style="float:right">
+                <option id="random_review" selected>Random</option>
+                <option id="search_review" >Search</option>
+                <option id="certain_review" >Certain</option>
+                <option id="uncertain_review" >Uncertain</option>
+                <option id="smart_seed" >Smart</option>
+            </select>
+            <br>
+            <input type="submit" style="float:left">
+
+            <button type="button" id="auto_review" onclick="autoreview()" style="float: right"> Auto Review </button>
+
+        </form>
+        <br>
+        <ol id="search_result" style="overflow-y: scroll; height: 600px">
+        </ol>
+    </div>
+
+    <div class="read">
+        <form id="display" action="javascript:;" onsubmit="labeling_send(this)">
+            <label name="which_part" id="which_part"></label>
+            <label name="doc_id" id="displaydoc_id"></label>
+            <input type="radio" name="labeling" value="pos"> Relevant
+            <input type="radio" name="labeling" value="neg"> Irrelevant
+            <input type="radio" name="labeling" value="none" checked> Leave
+            <input type="submit" id="send_label" disabled>
+            <h3 id="displaytag" style="background-color: white; overflow-y:
+            scroll; width: 450px; height: 25px"> </h3>
+            <p id="displaydoc" style="background-color: white; overflow-y: scroll; width: 450px; height: 680px" readonly> </p>
+        </form>
+
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <ol id="terms" style="overflow-y: scroll; height: 200px">
+                </ol>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="learn">
+        <h4 id="num_labeled"> </h4>
+        <h4 id="the_round"> </h4>
+        <button onclick="featurization_send()"> Featurization </button>
+        <button onclick="train_send()"> Train </button>
+        <select id="view_options" name="view" style="float:right" onchange="view_selection(this)">
+            <option id="certain" value="certain" selected>Certain</option>
+            <option id="uncertain" value="uncertain" >Uncertain</option>
+            <option id="support" value="support" >Important Documents</option>
+            <option id="view_coef" value="view_coef" >Important Terms</option>
+            <option id="edit_coef" value="edit_coef" >Re-activate Terms</option>
+            <option id="edit_addon" value="edit_addon" >Concurrencies</option>
+        </select>
+        <br>
+        <ol id="learn_result" style="overflow-y: scroll; height: 600px">
+        </ol>
+        <button onclick="restart_send()" > Restart </button>
+        <button type="button" name="plot_button" onclick="plot_send()" value="disable" disabled> Plot
+        </button>
+
+    </div>
+
+    <div class="control">
+        <h4 id="num_control"> </h4>
+        <h4 id="Precision"> </h4>
+        <h4 id="Recall"> </h4>
+        <h4 id="F_score"> </h4>
+        <select id="control_options" name="view" style="float:right" onchange="control_selection(this)">
+            <option id="turnover" value="turnover" selected>Turnover</option>
+            <option id="determinant" value="determinant">Determinant</option>
+        </select>
+        <br>
+        <ol id="control_result" style="overflow-y: scroll; height: 550px">
+        </ol>
+
+    </div>
+
+</body>

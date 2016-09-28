@@ -1,0 +1,88 @@
+
+div.search {
+    background-color:black;
+    color:white;
+    padding:10px;
+    float:left;
+    display:inline-block;
+    position: relative;
+    width:300px;
+    height: 770px;
+}
+div.read {
+    background-color:#eeeeee;
+    padding:10px;
+    float:left;
+    display:inline-block;
+    position: relative;
+    width:500px;
+    height: 770px;
+}
+div.learn {
+    background-color:black;
+    color:white;
+    float:left;
+    padding:10px;
+    display:inline-block;
+    position: relative;
+    width:300px;
+    height: 770px;
+}
+div.control {
+    background-color:black;
+    color:white;
+    float:left;
+    padding:10px;
+    display:inline-block;
+    position: relative;
+    width:300px;
+    height: 770px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color:black;
+    color:white;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 20%;
+}
