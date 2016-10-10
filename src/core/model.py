@@ -397,14 +397,7 @@ class SVM:
         pass
 
     def get_response(self):
-        try:
-            onlyPos = np.array([coef for coef in self.coef if coef > 0])
-            onlyCert = np.array([cert for cert in self.prob if cert > 0.5])
-            certainRanges = np.percentile(onlyCert, [25, 50, 90]).tolist()
-            postermRanges = np.percentile(onlyPos,  [25, 50, 90]).tolist()
-        except:
-            set_trace()
-        return {
+        response={
             "the_round"       : self.round,
             "coef"            : ','.join(map(str, self.coef)),
             "support"         : self.important_docs,
@@ -424,10 +417,18 @@ class SVM:
             "turnover"        : self.turnovers,
             "pos"             : self.STATS[1],
             "neg"             : self.STATS[0],
-            "more_coef"       : self.more,
-            "rCertain"        : ','.join(map(str, certainRanges)),
-            "rPosterm"        : ','.join(map(str, postermRanges))
+            "more_coef"       : self.more
         }
+        try:
+            onlyPos = np.array([coef for coef in self.coef if coef > 0])
+            onlyCert = np.array([cert for cert in self.prob if cert > 0.5])
+            certainRanges = np.percentile(onlyCert, [25, 50, 90]).tolist()
+            postermRanges = np.percentile(onlyPos,  [25, 50, 90]).tolist()
+            response["rCertain"] = ','.join(map(str, certainRanges))
+            response["rPosterm"] = ','.join(map(str, postermRanges))
+        except:
+            pass
+        return response
 
     def get_concurrency(self,term):
 
